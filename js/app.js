@@ -1,29 +1,29 @@
-let guess = document.getElementById('guess');
-let submitGuess = document.getElementById('submitGuess');
-let feedback = document.getElementById('feedback');
+// random value generated
+var y = Math.floor(Math.random() * 10 + 1);
+      
+// counting the number of guesses
+// made for correct Guess
+var guess = 1;
+  
+document.getElementById("submitguess").onclick = function(){
+  
+// number guessed by user     
+var x = document.getElementById("guessField").value;
 
-console.log('it works')
-
-// generate random number
-const rand = Math.floor(Math.random() * 20) + 1;
-console.log("we good");
-
-// // number of guess trial
-let trial = 5;
-
-function checkGuess() {
-  let myGuess = guess.value;
-  while (trial < 5) {
-    if (myGuess === rand) {
-      feedback.textContent = ("Yaay Correct!");
-    } else if (myGuess > rand) {
-      feedback.textContent = ("Yikes! " + myGuess + "Too high, Try Again!");
-    } else if (myGuess < rand) {
-      feedback.textContent = ("Yikes! " + myGuess + "Too low, Try Again!");
-    }
-  }
+if(x == y)
+{    
+   alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
+           + guess + " GUESS ");
 }
-submitGuess.addEventListener('onclick', checkGuess);
-console.log('working') 
-
-
+else if(x > y) /* if guessed number is greater
+               than actual number*/ 
+{    
+   guess++;
+   alert("OOPS SORRY!! TRY A SMALLER NUMBER");
+}
+else
+{
+   guess++;
+   alert("OOPS SORRY!! TRY A GREATER NUMBER")
+}
+}
